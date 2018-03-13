@@ -1,0 +1,79 @@
+body, html, .wrapper {
+	/* slideshow settings */
+	--fade-time: 2s;
+	--blur-pixels: 10px;
+	--brightness: 70%;
+
+	width: 100%;
+	height: 100%;
+	margin:0;
+	background-color: #000000;
+	overflow: hidden;
+}
+
+body {
+	position: relative;
+}
+
+.loading{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	color: #fefefe;
+	font-weight: bold;
+	font-size: 5em;
+	font-family: sans-serif;
+}
+
+.image {
+	width: 100%;
+	height: 100%;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
+	position: absolute;
+	transform: transale3d(0,0,0);
+}
+
+.background {
+	margin: 
+		calc(-1.5 * var(--blur-pixels))
+		calc(-1.5 * var(--blur-pixels));
+	width: 120%;
+	height: 120%;
+	position: absolute;
+	background-size: cover;
+	filter: blur(var(--blur-pixels)) brightness(var(--brightness));
+	-webkit-filter: blur(var(--blur-pixels)) brightness(var(--brightness));
+	-moz-filter: blur(var(--blur-pixels)) brightness(var(--brightness)); 
+	-o-filter: blur(var(--blur-pixels)) brightness(var(--brightness)); 
+	-ms-filter: blur(var(--blur-pixels)) brightness(var(--brightness));
+	overflow: hidden;
+	transform: transale3d(0,0,0);
+}
+
+.imageA {
+	z-index: 0;
+	/*background-image: url("slideshow/test2.jpg");*/
+}
+
+.imageB {
+	z-index: 1;
+	/*background-image: url("slideshow/test1.jpg");*/
+}
+
+/* https://stackoverflow.com/questions/15907079/css3-transition-fade-out-effect */
+.visible {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity var(--fade-time) linear;
+}
+
+.hidden {
+  /*visibility: hidden;*/
+  opacity: 0;
+
+  transition: opacity var(--fade-time) linear;
+  /*transition: visibility 0s var(--fade-time), opacity var(--fade-time) linear;*/
+}

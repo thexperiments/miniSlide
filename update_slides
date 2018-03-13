@@ -1,0 +1,12 @@
+#!/bin/bash
+cd -- "$(dirname "$0")" #change to current dir (osx hack)
+#write javascript by iterating over images
+echo "var slides = [" > slides.js
+for filename in `ls -v slideshow/*`; do
+	echo "\""$filename"\"," >> slides.js
+done
+echo "];" >> slides.js
+#start chrome on osx
+if [ -f /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome ]; then
+	/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome "file:///"$(dirname "$0")"/index.html"
+fi
