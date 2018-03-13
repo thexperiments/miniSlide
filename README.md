@@ -7,15 +7,18 @@ Currently should support all posix compliant systems.
 
 Usage
 -----------------------
-1. Clone the repo
+1. Clone the repo and enter the directory
 ```
 git clone https://github.com/thexperiments/miniSlide.git
+cd miniSlide
 ```
-2. Put some pictures into the `slideshow` directory
+2. Create a `slideshow` directory and put some pictures there
+```
+mkdir slideshow
+```
 3. Run the update_slides bash script, it wil generate a slides.js file.
 On OSX you should be able to just double-click the file and it also would be 
 ```
-cd miniSlide
 update_slides
 ```
 4. Open the index.html in a browser of your chioice (tested with chrome)
